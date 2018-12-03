@@ -3,6 +3,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var Sequelize = require('sequelize');
 var validator = require('express-validator');
+var router = express.Router();
 
 
 //Import controllers which hold the CRUD methods for each model
@@ -25,6 +26,8 @@ app.use(validator());
 var models = require("./db/models");
 
 
+
+
 //===========================================
 // Route Handlers
 //===========================================
@@ -37,14 +40,56 @@ app.get('/', function(req, res, next){
 //API endpoints and CRUD routes. The second arguments are referring to functions defined in the individual controller files.
 
 //Artworks CRUD routes.
-app.get('/api/v1/artworks', artworksController.fetchAll);
+/*app.get('/api/v1/artworks', artworksController.fetchAll);
 app.get('/api/v1/artworks/:id', artworksController.fetchOne);
 app.post('/api/v1/artworks/', artworksController.create);
 app.put('/api/v1/artworks/:id', artworksController.update);
 app.delete('/api/v1/artworks/:id', artworksController.delete);
-
+*/
 
 //Artists CRUD routes.
+var categoriasRouter = require('./db/routes/routesCategorias');
+categoriasRouter(app);
+
+var usuariosRouter = require('./db/routes/routesUsuarios');
+usuariosRouter(app);
+
+
+var detalleVentasRouter = require('./db/routes/routesDetalleCompras');
+detalleVentasRouter(app);
+
+
+var detalleComprasRouter = require('./db/routes/routesDetalleVentas');
+detalleComprasRouter(app);
+
+
+
+var ventasRouter = require('./db/routes/routesVentas');
+ventasRouter(app);
+
+
+var comprasRouter = require('./db/routes/routesCompras');
+comprasRouter(app);
+
+
+var productosRouter = require('./db/routes/routesProductos');
+productosRouter(app);
+
+
+var empresasRouter = require('./db/routes/routesEmpresas');
+empresasRouter(app);
+
+
+var permisosRouter = require('./db/routes/routesPermisos');
+permisosRouter(app);
+
+var clientesRouter = require('./db/routes/routesClientes');
+clientesRouter(app);
+
+
+var usuariosPermisosRouter = require('./db/routes/routesUsuariosPermisos');
+usuariosPermisosRouter(app);
+/*
 app.get('/api/v1/artists', artistsController.fetchAll);
 app.get('/api/v1/artists/:id', artistsController.fetchOne);
 app.post('/api/v1/artists/', artistsController.create);
@@ -58,7 +103,7 @@ app.get('/api/v1/locations/:id', locationsController.fetchOne);
 app.post('/api/v1/locations/', locationsController.create);
 app.put('/api/v1/locations/:id', locationsController.update);
 app.delete('/api/v1/locations/:id', locationsController.delete);
-
+*/
 
 
 
@@ -89,9 +134,13 @@ app.use(function(err, req, res, next) {
 
 //Tell node to listen for the App on port 3000:
 // listen on port 3000
-app.listen(process.env.PORT || 3000, function () {
+//models.sequelize.sync(({ force: true })).then(() => {
+models.sequelize.sync().then(() => {
+  app.listen(process.env.PORT || 3000, function () {
   console.log('Express app listening on port 3000');
 })
+});
+
 
 
 
