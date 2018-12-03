@@ -7,17 +7,17 @@
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "art-demo",
-    "host": "127.0.0.1",
+    "username": "sql10265064",
+    "password": "czlbkA6aYF",
+    "database": "sql10265064",
+    "host": "sql10.freemysqlhosting.net",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "art-demo",
-    "host": "127.0.0.1",
+    "username": "sql10265064",
+    "password": "czlbkA6aYF",
+    "database": "sql10265064",
+    "host": "sql10.freemysqlhosting.net",
     "dialect": "mysql"
   }
 }
