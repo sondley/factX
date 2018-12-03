@@ -14,7 +14,7 @@
     "express",
     "node"
   ],
-  "author": "Luke",
+  "author": "Sondley",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.2",
