@@ -130,3 +130,4 @@ Sequelize enables us to define this using natural terms. In our example, an arti
 Then, in our GET methods in the artist and location controller files, we add an **include** object into the findAll() call, so we can include the associated records from the other table.
 
 ***Note - older tutorials may tell you to define this in the 'classMethods' property on the model object. This will no longer work with Sequelize v4+, you need to define the associations outside of the model object. More information on this here: [Upgrade to V4](http://docs.sequelizejs.com/manual/tutorial/upgrade-to-v4.html)***
+# factX
