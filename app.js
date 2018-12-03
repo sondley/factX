@@ -136,8 +136,8 @@ app.use(function(err, req, res, next) {
 // listen on port 3000
 //models.sequelize.sync(({ force: true })).then(() => {
 models.sequelize.sync().then(() => {
-  app.listen(process.env.PORT || 3000, function () {
-  console.log('Express app listening on port 3000');
+  app.listen(process.env.PORT || 5000, function () {
+  console.log('Express app listening on port 5000');
 })
 });
 
