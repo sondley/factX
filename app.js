@@ -134,8 +134,8 @@ app.use(function(err, req, res, next) {
 
 //Tell node to listen for the App on port 3000:
 // listen on port 3000
-//models.sequelize.sync(({ force: true })).then(() => {
-models.sequelize.sync().then(() => {
+models.sequelize.sync(({ force: true })).then(() => {
+//models.sequelize.sync().then(() => {
   app.listen(process.env.PORT || 5000, function () {
   console.log('Express app listening on port 5000');
 })
