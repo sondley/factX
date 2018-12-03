@@ -4,3 +4,4 @@ module.exports = {
   'seeders-path': './db/seeders',
   'migrations-path': './db/migrations'
 }
+
